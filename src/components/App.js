@@ -6,7 +6,8 @@ import YouTubeApi from './../apis/YouTubeApi';
 
 class App extends React.Component {
   state = {
-    videos: []
+    videos: [],
+    selectedVideo: null
   };
 
   componentDidMount() {
@@ -21,7 +22,8 @@ class App extends React.Component {
     });
 
     this.setState({
-      videos: res.data.items
+      videos: res.data.items,
+      selectedVideo: res.data.items[0]
     });
   };
 
@@ -29,7 +31,7 @@ class App extends React.Component {
     return (
       <div>
         <SearchBar onTermSubmit={this.onTermSubmit} />
-        <VideoDetail />
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList videos={this.state.videos} />
       </div>
     );

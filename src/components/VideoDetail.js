@@ -1,7 +1,10 @@
 import React from 'react';
 
-const VideoDetail = () => {
-  return <div>VideoDetail</div>;
+const VideoDetail = ({ video }) => {
+  if (video) {
+    return <div>VidelDetail: {video.snippet.title}</div>;
+  }
+  return <div />;
 };
 
 export default VideoDetail;
