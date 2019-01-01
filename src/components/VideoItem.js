@@ -11,7 +11,6 @@ const VideoItem = ({ video, onVideoSelect }) => {
       />
       <div className='content'>
         <div className='header'>{video.snippet.title}</div>
-        <p>{video.snippet.description}</p>
       </div>
     </div>
   );
