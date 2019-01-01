@@ -9,6 +9,10 @@ class App extends React.Component {
     videos: []
   };
 
+  componentDidMount() {
+    this.onTermSubmit({ term: 'dog' });
+  }
+
   onTermSubmit = async term => {
     const res = await YouTubeApi.get('/search', {
       params: {
