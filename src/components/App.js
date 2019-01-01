@@ -27,6 +27,10 @@ class App extends React.Component {
     });
   };
 
+  onVideoSelect = video => {
+    this.setState({ selectedVideo: video });
+  };
+
   render() {
     return (
       <div className='ui container'>
@@ -38,7 +42,10 @@ class App extends React.Component {
               <VideoDetail video={this.state.selectedVideo} />
             </div>
             <div className='five wide column'>
-              <VideoList videos={this.state.videos} />
+              <VideoList
+                videos={this.state.videos}
+                onVideoSelect={this.onVideoSelect}
+              />
             </div>
           </div>
         </div>
