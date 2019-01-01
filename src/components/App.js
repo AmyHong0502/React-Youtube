@@ -4,10 +4,14 @@ import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 
 class App extends React.Component {
+  onTermSubmit = term => {
+    console.log('APP' + term);
+  };
+
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar onTermSubmit={this.onTermSubmit} />
         <VideoDetail />
         <VideoList />
       </div>
