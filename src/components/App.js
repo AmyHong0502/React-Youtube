@@ -5,6 +5,10 @@ import VideoDetail from './VideoDetail';
 import YouTubeApi from './../apis/YouTubeApi';
 
 class App extends React.Component {
+  state = {
+    videos: []
+  };
+
   onTermSubmit = async term => {
     const res = await YouTubeApi.get('/search', {
       params: {
@@ -12,7 +16,9 @@ class App extends React.Component {
       }
     });
 
-    console.log(res.data.items);
+    this.setState({
+      videos: res.data.items
+    });
   };
 
   render() {
